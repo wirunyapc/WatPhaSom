@@ -1,0 +1,58 @@
+﻿
+    *{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*{
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+html {
+   font-size: 100%;
+   -webkit-text-size-adjust: 100%;
+   -ms-text-size-adjust: 100%;
+}
+
+body {
+ font-size: 1.125em;
+ line-height: 1.5;
+ font-family: 'Lato', sans-serif;
+ color: #666666;
+ text-align: center;
+}
+
+.header {
+   height: 45px;
+   background-color: rgb(84, 167, 146);
+   font-size: 20px;
+   font-weight: 500;
+   color: white;
+ }
+
+.rowabout{
+  height: 100px;
+  margin-top: 20px;
+  background-color: rgba(84, 167, 146, 0.55);
+  color: black;
+}
+.rowproduct{
+  height: 100px;
+  margin-top: 20px;
+  color: black;
+}
+.footer {
+   height: 45px;
+   background-color: rgb(84, 167, 146);
+   font-size: 20px;
+   font-weight: 500;
+   color: white;
+ }
+
+ a {
+     color: #666666;
+     text-decoration: none;
+ }
+
+
