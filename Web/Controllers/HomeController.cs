@@ -13,8 +13,16 @@ namespace Web.Controllers
             return View();
         }
 
-    
+        public ActionResult Categories()
+        {
+            return View();
+        }
+        public ActionResult Contact()
+        {
+            return View();
+        }
 
-       
+
+
     }
 }

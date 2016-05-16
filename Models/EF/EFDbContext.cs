@@ -19,7 +19,6 @@ namespace Models.EF
         } 
         public DbSet<Product> Products {get; set;}
         public DbSet<Order> Orders { get; set; }
-        public DbSet<Customer> Customers { get; set; }
         public DbSet<LineProduct> LineProducts { get; set; }
         public DbSet<Payment> Payments { get; set; }
 

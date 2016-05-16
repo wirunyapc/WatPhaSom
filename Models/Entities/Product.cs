@@ -12,7 +12,7 @@ namespace Models.Entities
         public string name { get; set; }
         public double price { get; set; }
         public string description { get; set; }
-        public DateTime duration { get; set; }
+        public string photoPath { get; set; }
 
         public virtual ICollection<LineProduct> lineproducts { get; set; }
     }

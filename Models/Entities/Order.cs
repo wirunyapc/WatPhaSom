@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Models.Entities
 {
     public class Order
@@ -23,7 +24,7 @@ namespace Models.Entities
         public double totalPrice { get; set; }
 
    
-        public virtual Customer customer { get; set; }
+     //   public virtual u customer { get; set; }
         public virtual ICollection<LineProduct> lineproducts { get; set; }
         public virtual Payment payment { get; set; }
 

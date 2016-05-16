@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Models.Entities;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Web.Models
@@ -65,6 +66,21 @@ namespace Web.Models
     public class RegisterViewModel
     {
         [Required]
+        [StringLength(100)]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        [Display(Name = "PhoneNumber")]
+        public string PhoneNumber { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -80,10 +96,7 @@ namespace Web.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        [Display(Name = "Address")]
-        public string Address { get; set; }
+        public virtual ICollection<Order> orders { get; set; }
     }
 
     public class ResetPasswordViewModel

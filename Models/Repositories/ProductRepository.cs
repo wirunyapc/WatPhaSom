@@ -9,7 +9,7 @@ using System.Data.Entity;
 
 namespace Models.Repositories
 {
-    class ProductRepository : IProductRepository
+   public class ProductRepository : IProductRepository
     {
         EFDbContext _context = new EFDbContext();
 
@@ -21,7 +21,7 @@ namespace Models.Repositories
             
         }
 
-        public void deleteProduct(string id)
+        public void deleteProduct(int id)
         {
             Product product = _context.Products.Find(id);
             _context.Products.Remove(product);
@@ -34,12 +34,14 @@ namespace Models.Repositories
             saveProduct();
         }
 
-       // public List<Product> getAll()
-        //{
-         //   IEnumerable<Product> GetProducts();
-        //}
+        public List<Product> getAll()
+        {
 
-        public Product getProductById(string id)
+            return _context.Products.ToList();
+                
+        }
+
+        public Product getProductById(int id)
         {
             Product product = _context.Products.Find(id);
             return product;
