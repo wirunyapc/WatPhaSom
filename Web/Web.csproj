@@ -281,9 +281,11 @@
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Product\manageProduct.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="photoUpload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Models;
 using Models.Repositories;
 using Models.Entities;
+using System.IO;
 
 namespace Web.Controllers
 {
@@ -26,6 +26,8 @@ namespace Web.Controllers
             return View(productRepo.getAll());
         }
 
+
+
         // GET: Product/Details/5
         public ActionResult Details(int id)
         {
@@ -33,21 +35,35 @@ namespace Web.Controllers
         }
 
         // GET: Product/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
+       
+          
         // POST: Product/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(FormCollection collection, HttpPostedFileBase file)
         {
             Product product = new Product();
+            string path=null;
+             if (file != null)
+                 {
+                string pic = System.IO.Path.GetFileName(file.FileName);
+                string imagePath = System.IO.Path.Combine(
+                                       Server.MapPath("~/photoUpload"), pic);
+                // file is uploaded
+                file.SaveAs(imagePath);
+                path = "~/photoUpload" + pic;
+                 }
+
+
 
             var description = collection["description"];
             var name = collection["name"];
             var price = collection["price"];
-            var path = collection["photoPath"];
 
             double ConvertNum = double.Parse(price);
             
@@ -58,13 +74,13 @@ namespace Web.Controllers
 
             productRepo.addProduct(product);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("manageProduct");
         }
 
         // GET: Product/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(productRepo.getProductById(id));
         }
 
         // POST: Product/Edit/5
