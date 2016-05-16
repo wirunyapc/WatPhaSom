@@ -21,12 +21,12 @@ namespace Models.Repositories
             
         }
 
-        public void deleteProduct(int id)
+        public void deleteProduct(Product product)
         {
-            Product product = _context.Products.Find(id);
             _context.Products.Remove(product);
             saveProduct();
         }
+
 
         public void editProduct(Product product)
         {
