@@ -78,6 +78,10 @@
     <Compile Include="Migrations\201605160907262_add photo path attribute.Designer.cs">
       <DependentUpon>201605160907262_add photo path attribute.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605161951022_reload product.cs" />
+    <Compile Include="Migrations\201605161951022_reload product.Designer.cs">
+      <DependentUpon>201605161951022_reload product.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IOrderRepository.cs" />
@@ -107,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605160907262_add photo path attribute.resx">
       <DependentUpon>201605160907262_add photo path attribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605161951022_reload product.resx">
+      <DependentUpon>201605161951022_reload product.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

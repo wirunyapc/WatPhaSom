@@ -56,7 +56,7 @@ namespace Web.Controllers
                                        Server.MapPath("~/photoUpload"), pic);
                 // file is uploaded
                 file.SaveAs(imagePath);
-                path = "~/photoUpload" + pic;
+                path = "~/photoUpload/" + pic;
                  }
 
 
@@ -78,6 +78,7 @@ namespace Web.Controllers
         }
 
         // GET: Product/Edit/5
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             return View(productRepo.getProductById(id));
@@ -85,13 +86,43 @@ namespace Web.Controllers
 
         // POST: Product/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, FormCollection collection, HttpPostedFileBase file)
         {
             try
             {
-                // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                // TODO: Add update logic here
+                Product product = productRepo.getProductById(id);
+
+                string path = null;
+                if (file != null)
+                {
+                    System.Diagnostics.Debug.WriteLine("Hello i'm here");
+                    string pic = System.IO.Path.GetFileName(file.FileName);
+                    string imagePath = System.IO.Path.Combine(
+                                           Server.MapPath("~/photoUpload"), pic);
+                    // file is uploaded
+                    file.SaveAs(imagePath);
+                    path = "~/photoUpload/" + pic;
+                }
+
+                var description = collection["description"];
+                var name = collection["name"];
+                var price = collection["price"];
+
+                double ConvertNum = double.Parse(price);
+
+                product.name = name;
+                product.price = ConvertNum;
+                product.description = description;
+
+                //edit Photo
+                product.photoPath = path;
+
+                productRepo.editProduct(product);
+
+
+                return RedirectToAction("manageProduct");
             }
             catch
             {
