@@ -54,33 +54,9 @@
     <Compile Include="Entities\LineProduct.cs" />
     <Compile Include="Entities\Payment.cs" />
     <Compile Include="Entities\Product.cs" />
-    <Compile Include="Migrations\201605140605264_initial-migration.cs" />
-    <Compile Include="Migrations\201605140605264_initial-migration.Designer.cs">
-      <DependentUpon>201605140605264_initial-migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605140718524_initial2-migration.cs" />
-    <Compile Include="Migrations\201605140718524_initial2-migration.Designer.cs">
-      <DependentUpon>201605140718524_initial2-migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605150646522_initial3-migration.cs" />
-    <Compile Include="Migrations\201605150646522_initial3-migration.Designer.cs">
-      <DependentUpon>201605150646522_initial3-migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605150653218_take pay method out.cs" />
-    <Compile Include="Migrations\201605150653218_take pay method out.Designer.cs">
-      <DependentUpon>201605150653218_take pay method out.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605160348333_remove customer.cs" />
-    <Compile Include="Migrations\201605160348333_remove customer.Designer.cs">
-      <DependentUpon>201605160348333_remove customer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605160907262_add photo path attribute.cs" />
-    <Compile Include="Migrations\201605160907262_add photo path attribute.Designer.cs">
-      <DependentUpon>201605160907262_add photo path attribute.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605161951022_reload product.cs" />
-    <Compile Include="Migrations\201605161951022_reload product.Designer.cs">
-      <DependentUpon>201605161951022_reload product.cs</DependentUpon>
+    <Compile Include="Migrations\201605162016451_initial.cs" />
+    <Compile Include="Migrations\201605162016451_initial.Designer.cs">
+      <DependentUpon>201605162016451_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,26 +70,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605140605264_initial-migration.resx">
-      <DependentUpon>201605140605264_initial-migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605140718524_initial2-migration.resx">
-      <DependentUpon>201605140718524_initial2-migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605150646522_initial3-migration.resx">
-      <DependentUpon>201605150646522_initial3-migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605150653218_take pay method out.resx">
-      <DependentUpon>201605150653218_take pay method out.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605160348333_remove customer.resx">
-      <DependentUpon>201605160348333_remove customer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605160907262_add photo path attribute.resx">
-      <DependentUpon>201605160907262_add photo path attribute.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605161951022_reload product.resx">
-      <DependentUpon>201605161951022_reload product.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605162016451_initial.resx">
+      <DependentUpon>201605162016451_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
