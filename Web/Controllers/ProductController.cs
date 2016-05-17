@@ -105,7 +105,10 @@ namespace Web.Controllers
                     file.SaveAs(imagePath);
                     path = "~/photoUpload/" + pic;
                 }
-
+                else
+                {
+                    path = product.photoPath;
+                }
                 var description = collection["description"];
                 var name = collection["name"];
                 var price = collection["price"];
@@ -131,9 +134,11 @@ namespace Web.Controllers
         }
 
         // GET: Product/Delete/5
+        [HttpGet]
         public ActionResult Delete(int id)
         {
-            return View();
+            Product product = productRepo.getProductById(id);
+            return View(product);
         }
 
         // POST: Product/Delete/5
@@ -143,8 +148,10 @@ namespace Web.Controllers
             try
             {
                 // TODO: Add delete logic here
+                Product product = productRepo.getProductById(id);
+                productRepo.deleteProduct(product);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("manageProduct");
             }
             catch
             {
