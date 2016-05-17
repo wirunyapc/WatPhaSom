@@ -130,11 +130,10 @@ namespace Web.Controllers
             }
         }
 
-        // GET: Product/Delete/
-        [HttpGet]
-      public ActionResult Delete(int id)
+        // GET: Product/Delete/5
+        public ActionResult Delete(int id)
         {
-            return View(productRepo.getProductById(id));
+            return View();
         }
 
         // POST: Product/Delete/5
@@ -144,9 +143,8 @@ namespace Web.Controllers
             try
             {
                 // TODO: Add delete logic here
-                Product product = productRepo.getProductById(id);
-                productRepo.deleteProduct(product);
-                return RedirectToAction("manageProduct");
+
+                return RedirectToAction("Index");
             }
             catch
             {
