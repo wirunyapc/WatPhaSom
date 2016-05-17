@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>WATPHASOM SHOPPING ONLINE</title>
+    <title>WATPHASOM E-COMMERCE</title>
     <!-- Bootstrap -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- css -->
@@ -40,40 +40,45 @@
             <div class="col-md-12"><hr></div>
         </div>
 
+@foreach (var item in Model)
+{
+            <div class="row">
+                <div class="product">
+                    <div class="col-md-3 text-left">
+                        <img class="img-responsive" src="~/Content/image/shop.jpg" alt="shoppingnow">
+                        <h4>RICE</h4><p>Price : 20฿</p>
+                        <div class="col-md-12"><hr></div>
+                    </div>
+                    <div class="col-md-3 text-left">
+                        <img class="img-responsive" src="~/Content/image/shop.jpg" alt="shoppingnow">
+                        <h4>BANANA DRIED</h4><p>Price : 20฿</p>
+                        <div class="col-md-12"><hr></div>
+                    </div>
+                    <div class="col-md-3 text-left">
+                        <img class="img-responsive" src="~/Content/image/shop.jpg" alt="shoppingnow">
+                        <h4>7 HEAVEN</h4><p>Price : 20฿</p>
+                        <div class="col-md-12"><hr></div>
+                    </div>
+                    <div class="col-md-3 text-left">
+                        <img class="img-responsive" src="~/Content/image/shop.jpg" alt="shoppingnow">
+                        <h4>RICE</h4><p>Price : 20฿</p>
+                        <div class="col-md-12"><hr></div>
+                    </div>
 
-
-        <div class="row">
-            <div class="product">
-                <div class="col-md-3 text-left">
-                    <img class="img-responsive" src="~/Content/image/shop.jpg" alt="shoppingnow">
-                    <h4>RICE</h4><p>Price : 20฿</p>
-                    <div class="col-md-12"><hr></div>
                 </div>
-                <div class="col-md-3 text-left">
-                    <img class="img-responsive" src="~/Content/image/shop.jpg" alt="shoppingnow">
-                    <h4>BANANA DRIED</h4><p>Price : 20฿</p>
-                    <div class="col-md-12"><hr></div>
-                </div>
-                <div class="col-md-3 text-left">
-                    <img class="img-responsive" src="~/Content/image/shop.jpg" alt="shoppingnow">
-                    <h4>7 HEAVEN</h4><p>Price : 20฿</p>
-                    <div class="col-md-12"><hr></div>
-                </div>
-                <div class="col-md-3 text-left">
-                    <img class="img-responsive" src="~/Content/image/shop.jpg" alt="shoppingnow">
-                    <h4>RICE</h4><p>Price : 20฿</p>
-                    <div class="col-md-12"><hr></div>
-                </div>
-
             </div>
+
+}
+
+            <div class="row text-uppercase">
+                <div class="col-md-12"><hr></div><h2>7 Heaven</h2>
+                <div class="col-md-12"><hr></div>
+            </div>
+
+
         </div>
 
-        <div class="row">
-            <div class="col-md-12 "><hr></div>WATDOIPHASOM
-            <div class="col-md-12"><hr></div>
-        </div>
 
-    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>

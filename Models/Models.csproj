@@ -54,6 +54,7 @@
     <Compile Include="Entities\LineProduct.cs" />
     <Compile Include="Entities\Payment.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\UserViewModel.cs" />
     <Compile Include="Migrations\201605162016451_initial.cs" />
     <Compile Include="Migrations\201605162016451_initial.Designer.cs">
       <DependentUpon>201605162016451_initial.cs</DependentUpon>

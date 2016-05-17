@@ -14,12 +14,20 @@ namespace Web.Controllers
 
         IProductRepository productRepo = new ProductRepository();
         // GET: Product
-        public ActionResult Index()
+       // public ActionResult Index()
+       // {
+       
+         //   return View(productRepo.getAll());
+      //  }
+      //GET : Product
+        [HttpGet]
+        public ActionResult productMenu()
         {
 
             return View(productRepo.getAll());
         }
 
+        [Authorize(Roles = "Administrator")]
         public ActionResult manageProduct()
         {
 
