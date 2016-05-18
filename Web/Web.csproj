@@ -297,6 +297,7 @@
     <Content Include="Views\Roles\ManageUserRoles.cshtml" />
     <Content Include="Views\Roles\EditRoleForUser.cshtml" />
     <Content Include="Views\Product\productMenuWholesale.cshtml" />
+    <Content Include="Views\Home\AdminManage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

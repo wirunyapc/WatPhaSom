@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Web.Models;
+using System.Web.Security;
 
 namespace Web.Controllers
 {
@@ -449,8 +450,11 @@ namespace Web.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
-        }
+            var isAdmin = User.IsInRole("Administrator");
+            //System.Diagnostics.Debug.WriteLine(((ClaimsPrincipal)User).Identities);
+            return isAdmin ? RedirectToAction("manageProduct", "Product") : RedirectToAction("Index", "Home");
+           // return RedirectToAction("Index", "Home");
+           }
 
         internal class ChallengeResult : HttpUnauthorizedResult
         {

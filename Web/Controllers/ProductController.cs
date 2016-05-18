@@ -6,31 +6,35 @@ using System.Web.Mvc;
 using Models.Repositories;
 using Models.Entities;
 using System.IO;
+using Microsoft.AspNet.Identity;
+using System.Web.Security;
+using System.Security.Claims;
 
 namespace Web.Controllers
 {
     public class ProductController : Controller
     {
-
         IProductRepository productRepo = new ProductRepository();
+
         // GET: Product
-       // public ActionResult Index()
-       // {
-       
-         //   return View(productRepo.getAll());
-      //  }
+        public ActionResult Index()
+        {
+            var isRetail = User.IsInRole("Retail");
+            System.Diagnostics.Debug.WriteLine(((ClaimsPrincipal)User).Identities);
+            return isRetail ? RedirectToAction("productMenuRetail") : RedirectToAction("productMenuWholesale");
+        }
       //GET : Product
 
         [HttpGet]
-        [Authorize(Roles = "Retail")]
+        //[Authorize(Roles = "Retail")]
         public ActionResult productMenuRetail()
         {
-
+          
             return View(productRepo.getAll());
         }
 
         [HttpGet]
-        [Authorize(Roles = "Wholesale")]
+       // [Authorize(Roles = "Wholesale")]
         public ActionResult productMenuWholesale()
         {
 
