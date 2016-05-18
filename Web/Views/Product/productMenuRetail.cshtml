@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<Models.Entities.Product>
 
 @{
-    ViewBag.Title = "productMenu";
+    ViewBag.Title = "productMenuRetail";
 }
 
-<h2>productMenu</h2>
+<h2>productMenuRetail</h2>
 @using (Html.BeginForm("Cart", "Order", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
@@ -19,7 +19,7 @@
             @Html.DisplayNameFor(model => model.name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.price)
+            @Html.DisplayNameFor(model => model.priceRetail)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.description)
@@ -37,7 +37,7 @@
             @Html.DisplayFor(modelItem => item.name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.price)
+            @Html.DisplayFor(modelItem => item.priceRetail)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.description)

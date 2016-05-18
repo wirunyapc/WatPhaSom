@@ -20,8 +20,18 @@ namespace Web.Controllers
          //   return View(productRepo.getAll());
       //  }
       //GET : Product
+
         [HttpGet]
-        public ActionResult productMenu()
+        [Authorize(Roles = "Retail")]
+        public ActionResult productMenuRetail()
+        {
+
+            return View(productRepo.getAll());
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Wholesale")]
+        public ActionResult productMenuWholesale()
         {
 
             return View(productRepo.getAll());
@@ -71,12 +81,17 @@ namespace Web.Controllers
 
             var description = collection["description"];
             var name = collection["name"];
-            var price = collection["price"];
+            var priceR = collection["priceRetail"];
+            var priceW = collection["priceWholesale"];
 
-            double ConvertNum = double.Parse(price);
-            
+
+            double ConvertNumR = double.Parse(priceR);
+            double ConvertNumW = double.Parse(priceW);
+
+
             product.name = name;
-            product.price = ConvertNum;
+            product.priceRetail = ConvertNumR;
+            product.priceWholesale = ConvertNumW;
             product.description = description;
             product.photoPath = path;
 
@@ -119,12 +134,16 @@ namespace Web.Controllers
                 }
                 var description = collection["description"];
                 var name = collection["name"];
-                var price = collection["price"];
+                var priceR = collection["priceRetail"];
+                var priceW = collection["priceWholesale"];
 
-                double ConvertNum = double.Parse(price);
+                double ConvertNumR = double.Parse(priceR);
+                double ConvertNumW = double.Parse(priceW);
+
 
                 product.name = name;
-                product.price = ConvertNum;
+                product.priceRetail = ConvertNumR;
+                product.priceWholesale = ConvertNumW;
                 product.description = description;
 
                 //edit Photo

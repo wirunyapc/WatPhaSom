@@ -208,6 +208,10 @@
     <Compile Include="Migrations\201605160553340_initial-web.Designer.cs">
       <DependentUpon>201605160553340_initial-web.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605171618249_add product attribute.cs" />
+    <Compile Include="Migrations\201605171618249_add product attribute.Designer.cs">
+      <DependentUpon>201605171618249_add product attribute.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -285,13 +289,14 @@
     <Content Include="Views\Product\manageProduct.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Delete.cshtml" />
-    <Content Include="Views\Product\productMenu.cshtml" />
+    <Content Include="Views\Product\productMenuRetail.cshtml" />
     <Content Include="Views\Roles\GetUsers.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Roles\Create.cshtml" />
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\ManageUserRoles.cshtml" />
     <Content Include="Views\Roles\EditRoleForUser.cshtml" />
+    <Content Include="Views\Product\productMenuWholesale.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -316,6 +321,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605160553340_initial-web.resx">
       <DependentUpon>201605160553340_initial-web.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605171618249_add product attribute.resx">
+      <DependentUpon>201605171618249_add product attribute.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

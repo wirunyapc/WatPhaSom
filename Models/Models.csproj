@@ -59,6 +59,10 @@
     <Compile Include="Migrations\201605162016451_initial.Designer.cs">
       <DependentUpon>201605162016451_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605171620362_add more product attribute.cs" />
+    <Compile Include="Migrations\201605171620362_add more product attribute.Designer.cs">
+      <DependentUpon>201605171620362_add more product attribute.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IOrderRepository.cs" />
@@ -73,6 +77,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605162016451_initial.resx">
       <DependentUpon>201605162016451_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605171620362_add more product attribute.resx">
+      <DependentUpon>201605171620362_add more product attribute.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

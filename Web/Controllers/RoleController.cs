@@ -22,6 +22,7 @@ namespace Web.Controllers
             private set { _userManager = value; }
         }
 
+        [Authorize(Roles = "Administrator")]
 
         public ActionResult GetUsers()
         {
