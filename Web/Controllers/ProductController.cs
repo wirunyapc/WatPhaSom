@@ -9,6 +9,7 @@ using System.IO;
 using Microsoft.AspNet.Identity;
 using System.Web.Security;
 using System.Security.Claims;
+using Models.ViewModels;
 
 namespace Web.Controllers
 {
@@ -20,8 +21,8 @@ namespace Web.Controllers
         public ActionResult Index()
         {
             var isRetail = User.IsInRole("Retail");
-            System.Diagnostics.Debug.WriteLine(((ClaimsPrincipal)User).Identities);
-            return isRetail ? RedirectToAction("productMenuRetail") : RedirectToAction("productMenuWholesale");
+            return View(productRepo.getAll().ToList().Select(p => ProductViewModels.ProductViewModel));
+
         }
       //GET : Product
 

@@ -5,10 +5,8 @@
 }
 
 <h2>productMenuRetail</h2>
-@using (Html.BeginForm("Cart", "Order", FormMethod.Post))
+@using (Html.BeginForm("AddToCart", "Cart"))
 {
-    @Html.AntiForgeryToken()
-
 <table class="table">
     <tr>
         <th>
@@ -29,6 +27,7 @@
 
 @foreach (var item in Model)
 {
+
     <tr>
         <td>
             <image src="@Url.Content(item.photoPath)" alt="item.name" height="300" width="300" />
@@ -43,10 +42,12 @@
             @Html.DisplayFor(modelItem => item.description)
         </td>
         <td>
-            @Html.ActionLink("Add to cart", "Cart", new { id = item.productId }) |
-        </td>
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" value="+ Add to cart" />        
+         </td>
     </tr>
-}
+
 
 </table>
 }
+    }

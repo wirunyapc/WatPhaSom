@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EF\EFDbContext.cs" />
+    <Compile Include="Entities\Cart.cs" />
+    <Compile Include="Entities\CartIndexViewModel.cs" />
+    <Compile Include="Entities\CartLine.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\LineProduct.cs" />
     <Compile Include="Entities\Payment.cs" />
@@ -69,6 +73,7 @@
     <Compile Include="Repositories\IProductRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="ViewModels\ProductViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
