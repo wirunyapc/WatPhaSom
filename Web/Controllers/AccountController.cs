@@ -150,6 +150,7 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Address=model.Address, Name=model.Name};
@@ -446,14 +447,14 @@ namespace Web.Controllers
 
         private ActionResult RedirectToLocal(string returnUrl)
         {
+            var isAdmin = User.IsInRole("Administrator");
             if (Url.IsLocalUrl(returnUrl))
             {
-                return Redirect(returnUrl);
+                return isAdmin ? RedirectToAction("manageProduct", "Product") : RedirectToAction("Index", "Home");
+                //return Redirect(returnUrl);
             }
-            var isAdmin = User.IsInRole("Administrator");
-            //System.Diagnostics.Debug.WriteLine(((ClaimsPrincipal)User).Identities);
+            
             return isAdmin ? RedirectToAction("manageProduct", "Product") : RedirectToAction("Index", "Home");
-           // return RedirectToAction("Index", "Home");
            }
 
         internal class ChallengeResult : HttpUnauthorizedResult

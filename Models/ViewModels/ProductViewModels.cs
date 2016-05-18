@@ -17,7 +17,7 @@ namespace Models.ViewModels
             public string description { get; set; }
             public string photoPath { get; set; }
 
-            public ProductViewModel GetObject(Product p, string priceType)
+            public static ProductViewModel GetObject(Product p, string priceType)
             {
 
                 return priceType.Equals("Wholesale") ?

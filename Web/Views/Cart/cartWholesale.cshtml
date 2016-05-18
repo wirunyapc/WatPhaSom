@@ -1,10 +1,7 @@
 ﻿@model Models.Entities.CartIndexViewModel
-
-
-
 @{
 
-    ViewBag.Title = "Wat Pha Som: Your Cart";
+    ViewBag.Title = "Sports Store: Your Cart";
 
 }
 
@@ -15,15 +12,14 @@
 
     <thead>
         <tr>
+            <th align="left">Product</th>
 
             <th align="center">Quantity</th>
-
-            <th align="left">Item</th>
 
             <th align="right">Price</th>
 
             <th align="right">Subtotal</th>
-
+            <th></th>
         </tr>
     </thead>
 
@@ -33,14 +29,24 @@
         {
 
             <tr>
-                <td align="center">@line.Quantity</td>
-
                 <td align="left">@line.Product.name</td>
 
-                <td align="right">@line.Product.WholesalePrice.ToString("c")</td>
+                <td align="left">
+                   
+            </td>
+
+                <td align="right">@line.Product.priceWholesale.ToString("c")</td>
 
                 <td align="right">
-                    @((line.Quantity * line.Product.WholesalePrice).ToString("c"))
+                    @((line.Quantity * line.Product.priceWholesale).ToString("c"))
+                </td>
+                <td>
+                    @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                    {
+                        @Html.Hidden("ProductId", line.Product.productId)
+                        @Html.HiddenFor(x => x.ReturnUrl)
+                        <input class="actionButtons" type="submit" value="Remove" />
+                    }
                 </td>
 
             </tr>
@@ -56,7 +62,7 @@
 
             <td align="right">
 
-                @Model.Cart.ComputeTotalValue().ToString("c")
+                @Model.Cart.ComputeTotalValue("Wholesale").ToString("c")
 
             </td>
 

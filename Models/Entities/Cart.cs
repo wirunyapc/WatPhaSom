@@ -16,15 +16,16 @@ namespace Models.Entities
             if (line == null) { lineCollection.Add(new CartLine { Product = product, Quantity = quantity }); } else { line.Quantity += quantity; }
         }
         public void RemoveLine(Product product) { lineCollection.RemoveAll(l => l.Product.productId == product.productId); }
-        public double ComputeTotalValue()
+        public double ComputeTotalValue(string userType)
         {
-            if (Roles.GetRolesForUser().Contains("Wholesale"))
+            if (userType.Equals("Wholesale"))
             {
                 return lineCollection.Sum(e => e.Product.priceWholesale * e.Quantity);
 
             }
             return lineCollection.Sum(e => e.Product.priceRetail * e.Quantity);
         }
+       
         public void Clear() { lineCollection.Clear(); }
         public IEnumerable<CartLine> Lines { get { return lineCollection; } }
     }

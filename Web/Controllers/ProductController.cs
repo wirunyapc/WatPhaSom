@@ -21,7 +21,9 @@ namespace Web.Controllers
         public ActionResult Index()
         {
             var isRetail = User.IsInRole("Retail");
-            return View(productRepo.getAll().ToList().Select(p => ProductViewModels.ProductViewModel));
+            return View("List",productRepo.getAll().ToList().Select(p => 
+                ProductViewModels.ProductViewModel.GetObject(p, isRetail ? "Retail" : "Wholesale")
+            ));
 
         }
       //GET : Product

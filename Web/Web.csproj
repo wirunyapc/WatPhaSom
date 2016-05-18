@@ -290,17 +290,16 @@
     <Content Include="Views\Product\manageProduct.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Delete.cshtml" />
-    <Content Include="Views\Product\productMenuRetail.cshtml" />
     <Content Include="Views\Roles\GetUsers.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Roles\Create.cshtml" />
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\ManageUserRoles.cshtml" />
     <Content Include="Views\Roles\EditRoleForUser.cshtml" />
-    <Content Include="Views\Product\productMenuWholesale.cshtml" />
     <Content Include="Views\Home\AdminManage.cshtml" />
-    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\cartWholesale.cshtml" />
     <Content Include="Views\Product\List.cshtml" />
+    <Content Include="Views\Cart\cartRetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

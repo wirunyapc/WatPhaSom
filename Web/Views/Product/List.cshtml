@@ -5,8 +5,7 @@
 }
 
 <h2>List</h2>
-@using (Html.BeginForm("AddToCart", "Cart"))
-{
+
     <table class="table">
         <tr>
             <th>
@@ -42,13 +41,19 @@
                     @Html.DisplayFor(modelItem => item.description)
                 </td>
                 <td>
-                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                    <input type="submit" value="+ Add to cart" />
+                    @using (Html.BeginForm("AddToCart", "Cart"))
+                    {
+                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                            <input type="submit" value="+ Add to cart" />
+                        
+                        <input type="hidden" name="productId" value=@item.productId />
+                    }
+                    
                 </td>
+               
             </tr>
 
 
 
         }
     </table>
-}
