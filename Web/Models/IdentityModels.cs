@@ -10,7 +10,9 @@ namespace Web.Models
     public class ApplicationUser : IdentityUser
     {
         public string Address { get; set; }
-        public string Name { get; set; }
+        public string FirstName { get;  set; }
+        public string LastName { get;  set; }
+
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

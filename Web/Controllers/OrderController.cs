@@ -9,12 +9,10 @@ namespace Web.Controllers
     public class OrderController : Controller
     {
         // GET: Order
-        [HttpGet]
-        public ActionResult Cart()
+        public ActionResult Index(int orderId)
         {
+            Console.WriteLine("I'm in Order");
             return View();
         }
-
-
     }
 }

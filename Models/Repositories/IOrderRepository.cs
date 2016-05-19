@@ -12,7 +12,7 @@ namespace Models.Repositories
         void addOrder(Order order);
         void deleteOrder(string id);
         void editOrder(Order order);
-        //List<Product> getAll();
+        List<Order> getAll();
         Order getOrderById(string id);
         void saveOrder();
     }

@@ -67,8 +67,13 @@ namespace Web.Models
     {
         [Required]
         [StringLength(100)]
-        [Display(Name = "Name")]
-        public string Name { get; set; }
+        [Display(Name = "FirstName")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        [Display(Name = "LastName")]
+        public string LastName { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -96,7 +101,6 @@ namespace Web.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        public virtual ICollection<Order> orders { get; set; }
     }
 
     public class ResetPasswordViewModel

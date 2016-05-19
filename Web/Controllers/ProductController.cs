@@ -26,23 +26,8 @@ namespace Web.Controllers
             ));
 
         }
-      //GET : Product
 
-        [HttpGet]
-        //[Authorize(Roles = "Retail")]
-        public ActionResult productMenuRetail()
-        {
-          
-            return View(productRepo.getAll());
-        }
-
-        [HttpGet]
-       // [Authorize(Roles = "Wholesale")]
-        public ActionResult productMenuWholesale()
-        {
-
-            return View(productRepo.getAll());
-        }
+ 
 
         [Authorize(Roles = "Administrator")]
         public ActionResult manageProduct()

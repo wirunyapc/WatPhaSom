@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
@@ -212,6 +213,18 @@
     <Compile Include="Migrations\201605171618249_add product attribute.cs" />
     <Compile Include="Migrations\201605171618249_add product attribute.Designer.cs">
       <DependentUpon>201605171618249_add product attribute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605191831043_update to order.cs" />
+    <Compile Include="Migrations\201605191831043_update to order.Designer.cs">
+      <DependentUpon>201605191831043_update to order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605191955199_update order detail in web.cs" />
+    <Compile Include="Migrations\201605191955199_update order detail in web.Designer.cs">
+      <DependentUpon>201605191955199_update order detail in web.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605192057409_update user identity.cs" />
+    <Compile Include="Migrations\201605192057409_update user identity.Designer.cs">
+      <DependentUpon>201605192057409_update user identity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -297,9 +310,9 @@
     <Content Include="Views\Roles\ManageUserRoles.cshtml" />
     <Content Include="Views\Roles\EditRoleForUser.cshtml" />
     <Content Include="Views\Home\AdminManage.cshtml" />
-    <Content Include="Views\Cart\cartWholesale.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Product\List.cshtml" />
-    <Content Include="Views\Cart\cartRetail.cshtml" />
+    <Content Include="Views\Checkout\Address.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -327,6 +340,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605171618249_add product attribute.resx">
       <DependentUpon>201605171618249_add product attribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605191831043_update to order.resx">
+      <DependentUpon>201605191831043_update to order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605191955199_update order detail in web.resx">
+      <DependentUpon>201605191955199_update order detail in web.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605192057409_update user identity.resx">
+      <DependentUpon>201605192057409_update user identity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

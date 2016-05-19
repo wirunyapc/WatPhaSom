@@ -55,8 +55,7 @@
     <Compile Include="Entities\CartIndexViewModel.cs" />
     <Compile Include="Entities\CartLine.cs" />
     <Compile Include="Entities\Order.cs" />
-    <Compile Include="Entities\LineProduct.cs" />
-    <Compile Include="Entities\Payment.cs" />
+    <Compile Include="Entities\OrderDetail.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\UserViewModel.cs" />
     <Compile Include="Migrations\201605162016451_initial.cs" />
@@ -66,6 +65,34 @@
     <Compile Include="Migrations\201605171620362_add more product attribute.cs" />
     <Compile Include="Migrations\201605171620362_add more product attribute.Designer.cs">
       <DependentUpon>201605171620362_add more product attribute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605190401116_update shipping and order.cs" />
+    <Compile Include="Migrations\201605190401116_update shipping and order.Designer.cs">
+      <DependentUpon>201605190401116_update shipping and order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605190427142_edit shipping in EF.cs" />
+    <Compile Include="Migrations\201605190427142_edit shipping in EF.Designer.cs">
+      <DependentUpon>201605190427142_edit shipping in EF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605191108429_updateee.cs" />
+    <Compile Include="Migrations\201605191108429_updateee.Designer.cs">
+      <DependentUpon>201605191108429_updateee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605191110133_retake virtual product.cs" />
+    <Compile Include="Migrations\201605191110133_retake virtual product.Designer.cs">
+      <DependentUpon>201605191110133_retake virtual product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605191832468_update to order model.cs" />
+    <Compile Include="Migrations\201605191832468_update to order model.Designer.cs">
+      <DependentUpon>201605191832468_update to order model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605191948333_update order detail.cs" />
+    <Compile Include="Migrations\201605191948333_update order detail.Designer.cs">
+      <DependentUpon>201605191948333_update order detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605192007189_solve total in order.cs" />
+    <Compile Include="Migrations\201605192007189_solve total in order.Designer.cs">
+      <DependentUpon>201605192007189_solve total in order.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +112,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605171620362_add more product attribute.resx">
       <DependentUpon>201605171620362_add more product attribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605190401116_update shipping and order.resx">
+      <DependentUpon>201605190401116_update shipping and order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605190427142_edit shipping in EF.resx">
+      <DependentUpon>201605190427142_edit shipping in EF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605191108429_updateee.resx">
+      <DependentUpon>201605191108429_updateee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605191110133_retake virtual product.resx">
+      <DependentUpon>201605191110133_retake virtual product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605191832468_update to order model.resx">
+      <DependentUpon>201605191832468_update to order model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605191948333_update order detail.resx">
+      <DependentUpon>201605191948333_update order detail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605192007189_solve total in order.resx">
+      <DependentUpon>201605192007189_solve total in order.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

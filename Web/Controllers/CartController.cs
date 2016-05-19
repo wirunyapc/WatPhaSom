@@ -19,18 +19,19 @@ namespace Web.Controllers
         }
         public CartController(IProductRepository repo) { repository = repo; }
 
-        public ActionResult Index()
+        public ActionResult Index(string returnUrl)
         {
-            if (User.IsInRole("Wholesale"))
+
+            Cart cart = GetCart();
+
+            return View(new CartIndexViewModel
             {
-                return RedirectToAction("cartWholesale");
-            }
-            return RedirectToAction("cartRetail");
 
+                Cart = cart,
+                ReturnUrl = returnUrl
+
+            });
         }
-        public ViewResult cartWholesale(string returnUrl) { return View(new CartIndexViewModel { Cart = GetCart(), ReturnUrl = returnUrl }); }
-        public ViewResult cartRetail(string returnUrl) { return View(new CartIndexViewModel { Cart = GetCart(), ReturnUrl = returnUrl }); }
-
 
         public RedirectToRouteResult AddToCart(int productId, string returnUrl )
         {
@@ -45,11 +46,26 @@ namespace Web.Controllers
             if (product != null) { GetCart().RemoveLine(product); }
             return RedirectToAction("Index", new { returnUrl });
         }
-        private Cart GetCart()
+      /*  public RedirectToRouteResult UpdateLine(int productId, int newQuantity, string returnUrl)
+        {
+
+            Product product = repository.getProductById(productId);
+
+            if (product != null)
+            {
+                Cart cart = GetCart();
+                cart.UpdateLine(product, newQuantity);
+                Session["Cart"] = cart;
+            }
+            return RedirectToAction("Index", new { returnUrl });
+        }*/
+
+        public Cart GetCart()
         {
             Cart cart = (Cart)Session["Cart"]; if (cart == null) { cart = new Cart(); Session["Cart"] = cart; }
             return cart;
         }
-        
+       
+
     }
 }
