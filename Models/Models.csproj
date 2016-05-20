@@ -97,6 +97,22 @@
     <Compile Include="Migrations\201605200609226_update to amm.Designer.cs">
       <DependentUpon>201605200609226_update to amm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605200830130_update order id.cs" />
+    <Compile Include="Migrations\201605200830130_update order id.Designer.cs">
+      <DependentUpon>201605200830130_update order id.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605200838469_update order date attribute.cs" />
+    <Compile Include="Migrations\201605200838469_update order date attribute.Designer.cs">
+      <DependentUpon>201605200838469_update order date attribute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605200847005_orderdetail.cs" />
+    <Compile Include="Migrations\201605200847005_orderdetail.Designer.cs">
+      <DependentUpon>201605200847005_orderdetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605200950459_updat order2.cs" />
+    <Compile Include="Migrations\201605200950459_updat order2.Designer.cs">
+      <DependentUpon>201605200950459_updat order2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IShoppingCartRepository.cs" />
@@ -143,6 +159,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605200609226_update to amm.resx">
       <DependentUpon>201605200609226_update to amm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605200830130_update order id.resx">
+      <DependentUpon>201605200830130_update order id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605200838469_update order date attribute.resx">
+      <DependentUpon>201605200838469_update order date attribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605200847005_orderdetail.resx">
+      <DependentUpon>201605200847005_orderdetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605200950459_updat order2.resx">
+      <DependentUpon>201605200950459_updat order2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

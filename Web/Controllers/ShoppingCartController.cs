@@ -85,11 +85,12 @@ namespace Web.Controllers
         {
             // Remove the item from the cart
             var cart = ShoppingCart.GetCart(this.HttpContext);
+            cart.RemoveFromCart(ProductId);
 
             // Get the name of the item to display confirmation
 
             // Get the name of the album to display confirmation
-            string itemName = storeDB.Products
+            /*string itemName = storeDB.Products
                 .Single(item => item.productId.ToString() == ProductId.ToString()).name;
 
 
@@ -113,7 +114,7 @@ namespace Web.Controllers
                 CartCount = cart.GetCount(),
                 ItemCount = itemCount,
                 DeleteId = ProductId
-            };
+            };*/
             return RedirectToAction("Index");
         }
         //

@@ -14,5 +14,9 @@ namespace Web.Controllers
             Console.WriteLine("I'm in Order");
             return View();
         }
+        public ActionResult Detail(int orderId)
+        {
+            return View();
+        }
     }
 }

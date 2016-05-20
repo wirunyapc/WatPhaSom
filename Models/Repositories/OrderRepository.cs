@@ -17,7 +17,7 @@ namespace Models.Repositories
         public void addOrder(Order order)
         {
             // Load current account from DB
-            var accountInDb = _context.Orders.Single(a => a.OrderId == order.OrderId);
+            var accountInDb = _context.Orders.Single(a => a.orderId == order.orderId);
 
             // Update the properties
             _context.Entry(accountInDb).CurrentValues.SetValues(order);

@@ -94,7 +94,7 @@ namespace Models.Repositories
             return cartItem.Count;
         }
 
-        public int RemoveFromCart(int id)
+        public void RemoveFromCart(int id)
         {
 
 
@@ -105,23 +105,23 @@ namespace Models.Repositories
                 && cart.productId.Equals(id));
 
 
-            int itemCount = 0;
+            //int itemCount = 0;
 
             if (cartItem != null)
             {
-                if (cartItem.Count > 1)
-                {
-                    cartItem.Count = 0;
-                    itemCount = cartItem.Count;
-                }
-                else
-                {
+               // if (cartItem.Count > 1)
+               // {
+                //    cartItem.Count = 0;
+                 //   itemCount = cartItem.Count;
+               // }
+               // else
+               // {
                     _context.Carts.Remove(cartItem);
-                }
+               // }
                 // Save changes
                 _context.SaveChanges();
             }
-            return itemCount;
+           // return itemCount;
         }
 
         public void EmptyCart()
@@ -198,8 +198,8 @@ namespace Models.Repositories
 
                 var orderDetail = new OrderDetail
                 {
-                    OrderDetailId = item.productId,
-                    OrderId = order.OrderId,
+                    productId = item.productId,
+                    orderId = order.orderId,
                     UnitPrice = (decimal)(item.product.priceRetail),
                     Quantity = item.Count
                 };

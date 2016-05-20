@@ -13,7 +13,7 @@ namespace Models.Repositories
         ShoppingCartRepository GetCart(HttpContextBase context);
         int AddToCart(Product item);
         int AddToCart(Product item, int amount);
-        int RemoveFromCart(int id);
+        void RemoveFromCart(int id);
         void EmptyCart();
         List<Cart> GetCartItems();
         int GetCount();

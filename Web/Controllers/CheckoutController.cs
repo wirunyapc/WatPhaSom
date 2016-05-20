@@ -58,7 +58,7 @@ namespace Web.Controllers
                 ro = "Wholesale";
             }
 
-            string pathimage = null;
+           string pathimage = null;
 
           /*  if (file != null)
             {
@@ -84,10 +84,32 @@ namespace Web.Controllers
             {
                 order.Username = User.Identity.Name;
                 order.Email = User.Identity.Name;
-                order.OrderDate = DateTime.Now;
+                order.orderDate = DateTime.Now;
                 order.Total = total;
                 order.slipPath = pathimage;
                 order.isConfirm = "-";
+                order.FirstName = values["Firstname"];
+                order.LastName = values["LastName"];
+
+                order.Address = values["Address"];
+
+                order.city = values["city"];
+
+                order.State = values["State"];
+
+                order.Country = values["Country"];
+
+                order.Phone = values["Phone"];
+
+                order.toHomeCost = 0.0;
+
+                order.isConfirm = "-";
+
+                order.isPay = "-";
+
+
+                order.FirstName = values["Firstname"];
+
                 var currentUserId = User.Identity.GetUserId();
 
                 if (order.SaveInfo && !order.Username.Equals("guest@guest.com"))
@@ -98,16 +120,13 @@ namespace Web.Controllers
                     var ctx = store.Context;
                     var currentUser = manager.FindById(User.Identity.GetUserId());
 
-                    order.Address = values["Address"];
-                    order.City = values["City"];
-                    order.Country = values["Country"];
-                    order.State = values["State"];
-                    order.Phone = values["Phone"];
-                    order.PostalCode = values["PostalCode"];
-                    currentUser.FirstName = values["FirstName"];
-                    currentUser.LastName = values["FirstName"];
-
-
+                    currentUser.Address = order.Address;
+                    currentUser.City = order.city;
+                    currentUser.Country = order.Country;
+                    currentUser.Province = order.State;
+                    currentUser.PhoneNumber = order.Phone;
+                    currentUser.PostalCode = order.PostalCode;
+                    currentUser.FirstName = order.FirstName;
 
                     //Save this back
                     //http://stackoverflow.com/questions/20444022/updating-user-data-asp-net-identity
@@ -130,7 +149,7 @@ namespace Web.Controllers
                 //CheckoutController.SendOrderMessage(order.FirstName, "New Order: " + order.OrderId, order.ToString(order), appConfig.OrderEmail);
 
                 return RedirectToAction("Complete",
-                    new { id = order.OrderId });
+                    new { id = order.orderId });
 
             }
             catch
@@ -139,14 +158,14 @@ namespace Web.Controllers
                 return View(order);
             }
         }
-
+       
         //
         // GET: /Checkout/Complete
         public ActionResult Complete(int id)
         {
             // Validate customer owns this order
             bool isValid = storeDB.Orders.Any(
-                o => o.OrderId == id &&
+                o => o.orderId == id &&
                 o.Username == User.Identity.Name);
 
             if (isValid)

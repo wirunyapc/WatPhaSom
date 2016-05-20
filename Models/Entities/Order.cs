@@ -11,9 +11,9 @@ namespace Models.Entities
     public partial class Order
     {
         [ScaffoldColumn(false)]
-        public int OrderId { get; set; }
+        public int orderId { get; set; }
         [ScaffoldColumn(false)]
-        public System.DateTime OrderDate { get; set; }
+        public System.DateTime orderDate { get; set; }
         [ScaffoldColumn(false)]
         public string Username { get; set; }
 
@@ -33,7 +33,7 @@ namespace Models.Entities
 
         [Required(ErrorMessage = "City is required")]
         [StringLength(40)]
-        public string City { get; set; }
+        public string city { get; set; }
 
         [Required(ErrorMessage = "State is required")]
         [StringLength(40)]
@@ -65,7 +65,7 @@ namespace Models.Entities
         public double toHomeCost { get; set; }
         public string isConfirm { get; set; }
         public double mountainCost { get; set; }
-        public Boolean isPay { get; set; }
+        public string isPay { get; set; }
         public string slipPath { get; set; }
 
         public decimal Total { get; set; }
@@ -78,9 +78,9 @@ namespace Models.Entities
         {
             StringBuilder bob = new StringBuilder();
 
-            bob.Append("<p>Order Information for Order: " + order.OrderId + "<br>Placed at: " + order.OrderDate + "</p>").AppendLine();
+            bob.Append("<p>Order Information for Order: " + order.orderId + "<br>Placed at: " + order.orderDate + "</p>").AppendLine();
             bob.Append("<p>Name: " + order.FirstName + " " + order.LastName + "<br>");
-            bob.Append("Address: " + order.Address + " " + order.City + " " + order.State + " " + order.PostalCode + "<br>");
+            bob.Append("Address: " + order.Address + " " + order.city + " " + order.State + " " + order.PostalCode + "<br>");
             bob.Append("Contact: " + order.Email + "     " + order.Phone + "</p>");
 
             bob.Append("<br>").AppendLine();

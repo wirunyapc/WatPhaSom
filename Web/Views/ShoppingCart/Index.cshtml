@@ -13,19 +13,16 @@
     <a href="~/Checkout/Address">Check out</a>
 
 </p>
-@{ 
 
-    if (Model.CartItems.Count > 0)
-    {
 <table width="90%" align="center">
 
     <thead>
         <tr>
             <th align="left">Product</th>
 
-            <th align="center">Quantity</th>
+            <th align="left">Quantity</th>
 
-            <th align="right">Price</th>
+            <th align="left">Price</th>
 
             <th align="right">Subtotal</th>
             <th></th>
@@ -44,13 +41,13 @@
 
                 @if (User.IsInRole("Wholesale"))
                 {
-                    <td align="right">@line.product.priceWholesale.ToString("c")</td>
-                    <td align="right">@((line.Count * line.product.priceWholesale).ToString("c"))</td>
+                    <td align="left">@line.product.priceWholesale.ToString("c")</td>
+                    <td align="left">@((line.Count * line.product.priceWholesale).ToString("c"))</td>
                 }
                 else
                 {
-                    <td align="right">@line.product.priceRetail.ToString("c")</td>
-                    <td align="right"> @((line.Count * line.product.priceRetail).ToString("c"))</td>
+                    <td align="left">@line.product.priceRetail.ToString("c")</td>
+                    <td align="left"> @((line.Count * line.product.priceRetail).ToString("c"))</td>
                 }                
                 
                 
@@ -84,20 +81,9 @@
     </tfoot>
 
 </table>
-        }
-        else
-        {
-        < div >
-            < p >
-                There are no items in your cart currently.Please shop for something and add items..
-
-           </ p >
-
-       </ div >
-            }
-    } 
+   
 <p align="center" class="actionButtons">
-
+    <br><br><br>
     <a href="~/Product/Index">Continue shopping</a>
 
 </p>
