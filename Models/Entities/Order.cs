@@ -67,12 +67,15 @@ namespace Models.Entities
         public double mountainCost { get; set; }
         public string isPay { get; set; }
         public string slipPath { get; set; }
+     
+        public string paymentId { get; set; }
 
         public decimal Total { get; set; }
 
 
         //   public virtual u customer { get; set; }
         public virtual ICollection<OrderDetail> OrderDetail { get; set; }
+
 
         public string ToString(Order order)
         {

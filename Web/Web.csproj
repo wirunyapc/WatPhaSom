@@ -234,6 +234,10 @@
     <Compile Include="Migrations\201605200858269_updateuser.Designer.cs">
       <DependentUpon>201605200858269_updateuser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605201109093_update for db branch.cs" />
+    <Compile Include="Migrations\201605201109093_update for db branch.Designer.cs">
+      <DependentUpon>201605201109093_update for db branch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -333,6 +337,8 @@
     <Content Include="Views\Checkout\Address.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Scripts\jquery-2.2.3.min.map" />
+    <Content Include="Views\Checkout\Complete.cshtml" />
+    <Content Include="Views\Checkout\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -372,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605200858269_updateuser.resx">
       <DependentUpon>201605200858269_updateuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201109093_update for db branch.resx">
+      <DependentUpon>201605201109093_update for db branch.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -55,6 +55,7 @@
     <Compile Include="Entities\CartLine.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\OrderDetail.cs" />
+    <Compile Include="Entities\Payment.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\UserViewModel.cs" />
     <Compile Include="Migrations\201605162016451_initial.cs" />
@@ -112,6 +113,22 @@
     <Compile Include="Migrations\201605200950459_updat order2.cs" />
     <Compile Include="Migrations\201605200950459_updat order2.Designer.cs">
       <DependentUpon>201605200950459_updat order2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605201115270_up forr db branch.cs" />
+    <Compile Include="Migrations\201605201115270_up forr db branch.Designer.cs">
+      <DependentUpon>201605201115270_up forr db branch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605201430581_add payment method.cs" />
+    <Compile Include="Migrations\201605201430581_add payment method.Designer.cs">
+      <DependentUpon>201605201430581_add payment method.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605201529359_paymment dropdown.cs" />
+    <Compile Include="Migrations\201605201529359_paymment dropdown.Designer.cs">
+      <DependentUpon>201605201529359_paymment dropdown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605201607278_del att in order.cs" />
+    <Compile Include="Migrations\201605201607278_del att in order.Designer.cs">
+      <DependentUpon>201605201607278_del att in order.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -171,6 +188,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605200950459_updat order2.resx">
       <DependentUpon>201605200950459_updat order2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201115270_up forr db branch.resx">
+      <DependentUpon>201605201115270_up forr db branch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201430581_add payment method.resx">
+      <DependentUpon>201605201430581_add payment method.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201529359_paymment dropdown.resx">
+      <DependentUpon>201605201529359_paymment dropdown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201607278_del att in order.resx">
+      <DependentUpon>201605201607278_del att in order.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

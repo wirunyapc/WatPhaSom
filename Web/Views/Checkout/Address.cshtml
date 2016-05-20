@@ -79,7 +79,17 @@
                         @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <br>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.paymentId, htmlAttributes: new { @class = "col-lg-2 control-label" })
+                    <div class="col-lg-10">
+                        <select name="payment">
+                            <option>Bank Transfer</option>
+                            <option>Paypal</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "col-lg-2 control-label" })
                     <div class="col-lg-10">

@@ -34,6 +34,7 @@ namespace Web.Controllers
                 ro = "Wholesale";
             }
             //ViewBag.CreditCardTypes = CreditCardTypes;
+
             var previousOrder = storeDB.Orders.FirstOrDefault(x => x.Username == User.Identity.Name);
             var cart = ShoppingCart.GetCart(this.HttpContext);
             decimal total = cart.GetTotal(ro);
@@ -46,7 +47,7 @@ namespace Web.Controllers
         //
         // POST: /Checkout/AddressAndPayment
         [HttpPost]
-        public async Task<ActionResult> Address(FormCollection values)
+        public async Task<ActionResult> Address(FormCollection values,string payment)
         {
             string ro = null; // roles
             if (User.IsInRole("Retail"))
@@ -107,6 +108,8 @@ namespace Web.Controllers
 
                 order.isPay = "-";
 
+                order.paymentId = payment;
+
 
                 order.FirstName = values["Firstname"];
 
@@ -164,13 +167,12 @@ namespace Web.Controllers
         public ActionResult Complete(int id)
         {
             // Validate customer owns this order
-            bool isValid = storeDB.Orders.Any(
-                o => o.orderId == id &&
-                o.Username == User.Identity.Name);
+            bool isValid = storeDB.Orders.Any( o => o.orderId == id && o.Username.Equals(User.Identity.Name));
 
             if (isValid)
             {
-                return View(id);
+                Order or = storeDB.Orders.Find(id);
+                return View(or);
             }
             else
             {
