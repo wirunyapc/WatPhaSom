@@ -20,28 +20,15 @@
                 @Html.ActionLink("Wat Pha Som e-commerce", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                @if (User.IsInRole("Administrator"))
-                {
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Manage Product", "manageProduct", "Product")</li>
-                        <li>@Html.ActionLink("Manage user roles", "GetUsers", "Roles")</li>
-                    </ul>
-                }
-                else
-                {
-                    <ul class="nav navbar-nav">
-                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                         <li>@Html.ActionLink("Products", "Index", "Product")</li>
-                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                         <li>@Html.ActionLink("My cart", "Index", "Cart")</li>
-                    </ul>
-                        }
-                        @Html.Partial("_LoginPartial")
-</div>
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Products", "Index", "Product")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
         </div>
     </div>
-
-
     <div class="container body-content">
         @RenderBody()
         <hr />

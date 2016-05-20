@@ -16,14 +16,8 @@ namespace Models.Repositories
 
         public void addOrder(Order order)
         {
-            // Load current account from DB
-            var accountInDb = _context.Orders.Single(a => a.OrderId == order.OrderId);
-
-            // Update the properties
-            _context.Entry(accountInDb).CurrentValues.SetValues(order);
-
-            // Save the changes
-            _context.SaveChanges();
+            _context.Orders.Add(order);
+            saveOrder();
         }
 
         public void deleteOrder(string id)
@@ -37,11 +31,6 @@ namespace Models.Repositories
         {
             _context.Entry(order).State = EntityState.Modified;
             saveOrder();
-        }
-
-        public List<Order> getAll()
-        {
-            return _context.Orders.ToList();
         }
 
         public Order getOrderById(string id)

@@ -1,18 +1,12 @@
 ﻿@model Models.Entities.CartIndexViewModel
 @{
 
-    ViewBag.Title = "Shop : Your Cart";
+    ViewBag.Title = "Sports Store: Your Cart";
 
 }
 
 
-<h2>Your cart</h2> 
-
-<p align="right" class="actionButtons" >
-
-    <a href="~/Checkout/Address">Check out</a>
-
-</p>
+<h2>Your cart</h2>
 
 <table width="90%" align="center">
 
@@ -37,21 +31,15 @@
             <tr>
                 <td align="left">@line.Product.name</td>
 
-                <td align="left">@line.Quantity</td>
+                <td align="left">
+                   
+            </td>
 
-                @if (User.IsInRole("Wholesale"))
-                {
-                    <td align="right">@line.Product.priceWholesale.ToString("c")</td>
-                    <td align="right">@((line.Quantity * line.Product.priceWholesale).ToString("c"))</td>
-                }
-                else
-                {
-                    <td align="right">@line.Product.priceRetail.ToString("c")</td>
-                    <td align="right"> @((line.Quantity * line.Product.priceRetail).ToString("c"))</td>
-                }                
-                
-                
-                
+                <td align="right">@line.Product.priceWholesale.ToString("c")</td>
+
+                <td align="right">
+                    @((line.Quantity * line.Product.priceWholesale).ToString("c"))
+                </td>
                 <td>
                     @using (Html.BeginForm("RemoveFromCart", "Cart"))
                     {
@@ -73,14 +61,8 @@
             <td colspan="3" align="right">Total:</td>
 
             <td align="right">
-                @if (User.IsInRole("Wholesale"))
-                {
+
                 @Model.Cart.ComputeTotalValue("Wholesale").ToString("c")
-                }
-                else
-                {
-                @Model.Cart.ComputeTotalValue("Retail").ToString("c")
-                }
 
             </td>
 
@@ -91,6 +73,6 @@
 
 <p align="center" class="actionButtons">
 
-    <a href="~/Product/Index">Continue shopping</a>
+    <a href="@Model.ReturnUrl">Continue shopping</a>
 
 </p>
