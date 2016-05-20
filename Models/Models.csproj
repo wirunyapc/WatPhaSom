@@ -52,7 +52,6 @@
   <ItemGroup>
     <Compile Include="EF\EFDbContext.cs" />
     <Compile Include="Entities\Cart.cs" />
-    <Compile Include="Entities\CartIndexViewModel.cs" />
     <Compile Include="Entities\CartLine.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\OrderDetail.cs" />
@@ -94,13 +93,21 @@
     <Compile Include="Migrations\201605192007189_solve total in order.Designer.cs">
       <DependentUpon>201605192007189_solve total in order.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605200609226_update to amm.cs" />
+    <Compile Include="Migrations\201605200609226_update to amm.Designer.cs">
+      <DependentUpon>201605200609226_update to amm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IShoppingCartRepository.cs" />
     <Compile Include="Repositories\IOrderRepository.cs" />
     <Compile Include="Repositories\IProductRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\ShoppingCartRepository.cs" />
     <Compile Include="ViewModels\ProductViewModels.cs" />
+    <Compile Include="ViewModels\ShoppingCartRemoveViewModel.cs" />
+    <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -133,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605192007189_solve total in order.resx">
       <DependentUpon>201605192007189_solve total in order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605200609226_update to amm.resx">
+      <DependentUpon>201605200609226_update to amm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

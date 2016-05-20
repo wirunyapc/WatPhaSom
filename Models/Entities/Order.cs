@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Models.Entities
 {
-    public class Order
+    //[Bind(Exclude = "OrderId")]
+    public partial class Order
     {
+        [ScaffoldColumn(false)]
         public int OrderId { get; set; }
-
+        [ScaffoldColumn(false)]
         public System.DateTime OrderDate { get; set; }
-
+        [ScaffoldColumn(false)]
         public string Username { get; set; }
 
         [Required(ErrorMessage = "First Name is required")]
@@ -63,16 +63,58 @@ namespace Models.Entities
         public bool SaveInfo { get; set; }
 
         public double toHomeCost { get; set; }
-        public Boolean isConfirm { get; set; }
+        public string isConfirm { get; set; }
         public double mountainCost { get; set; }
         public Boolean isPay { get; set; }
         public string slipPath { get; set; }
 
-        public double Total { get; set; }
+        public decimal Total { get; set; }
 
 
         //   public virtual u customer { get; set; }
-        public virtual ICollection<OrderDetail> OrderDtails { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetail { get; set; }
+
+        public string ToString(Order order)
+        {
+            StringBuilder bob = new StringBuilder();
+
+            bob.Append("<p>Order Information for Order: " + order.OrderId + "<br>Placed at: " + order.OrderDate + "</p>").AppendLine();
+            bob.Append("<p>Name: " + order.FirstName + " " + order.LastName + "<br>");
+            bob.Append("Address: " + order.Address + " " + order.City + " " + order.State + " " + order.PostalCode + "<br>");
+            bob.Append("Contact: " + order.Email + "     " + order.Phone + "</p>");
+
+            bob.Append("<br>").AppendLine();
+            bob.Append("<Table>").AppendLine();
+            // Display header 
+            string header = "<tr> <th>Item Name</th>" + "<th>Quantity</th>" + "<th>Price</th> <th></th> </tr>";
+            bob.Append(header).AppendLine();
+
+            String output = String.Empty;
+            try
+            {
+                foreach (var item in order.OrderDetails)
+                {
+                    bob.Append("<tr>");
+                    output = "<td>" + item.Product.name + "</td>" + "<td>" + item.Quantity + "</td>" + "<td>" + item.Quantity * item.UnitPrice + "</td>";
+                    bob.Append(output).AppendLine();
+                    Console.WriteLine(output);
+                    bob.Append("</tr>");
+                }
+            }
+            catch (Exception ex)
+            {
+                output = "No items ordered.";
+            }
+            bob.Append("</Table>");
+            bob.Append("<b>");
+            // Display footer 
+            string footer = String.Format("{0,-12}{1,12}\n",
+                                          "Total", order.Total);
+            bob.Append(footer).AppendLine();
+            bob.Append("</b>");
+
+            return bob.ToString();
+        }
 
     }
 }

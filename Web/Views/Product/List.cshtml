@@ -21,6 +21,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.description)
             </th>
+            <th>
+                Quantity
+            </th>
             <th></th>
         </tr>
 
@@ -29,7 +32,7 @@
 
             <tr>
                 <td>
-                    <image src="@Url.Content(item.photoPath)" alt="item.name" height="300" width="300" />
+                    <image src="@Url.Content(item.photoPath)" alt="item.name" height="200" width="200" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.name)
@@ -40,20 +43,23 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.description)
                 </td>
+                @using (Html.BeginForm("AddToCart", "ShoppingCart" ))
+                {
                 <td>
-                    @using (Html.BeginForm("AddToCart", "Cart"))
-                    {
-                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                            <input type="submit" value="+ Add to cart" />
+                    <input type="hidden" name="productId" value=@item.productId />
+                    <input type="number" name="amount" value="1" />
+                </td>
+                <td>                   
                         
-                        <input type="hidden" name="productId" value=@item.productId />
-                    }
+                            <input type="submit" value="+ Add to cart" />                   
+                       
+                    
                     
                 </td>
-               
+                }
             </tr>
 
-
+        
 
         }
     </table>
