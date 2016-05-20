@@ -213,6 +213,10 @@
     <Compile Include="Migrations\201605171618249_add product attribute.Designer.cs">
       <DependentUpon>201605171618249_add product attribute.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605201009457_re migration.cs" />
+    <Compile Include="Migrations\201605201009457_re migration.Designer.cs">
+      <DependentUpon>201605201009457_re migration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -327,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605171618249_add product attribute.resx">
       <DependentUpon>201605171618249_add product attribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201009457_re migration.resx">
+      <DependentUpon>201605201009457_re migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
