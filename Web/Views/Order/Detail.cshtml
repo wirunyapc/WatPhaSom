@@ -136,9 +136,11 @@
 
     </dl>
 
-       @if (User.IsInRole("Administrator")) {
-        using (Html.BeginForm("Detail", "Order", FormMethod.Post))
+       
+        @using (Html.BeginForm("Detail", "Order", FormMethod.Post))
         {
+            if (User.IsInRole("Administrator"))
+                {
 
             <div class="form-group">
                 @Html.LabelFor(model => model.mountainCost, htmlAttributes: new { @class = "control-label col-md-2" })
