@@ -126,17 +126,20 @@
         </dt>
 
         <dd>
-            <image src="@Url.Content(Model.slipPath)" alt="item.name" height="300" width="300" />
+            
+            <image src="@Url.Content(Model.slipPath)" alt="item.name" height="300" width="300" />             
+                      
+                    
+                
         </dd>        
-        }
-        
+        }      
 
     </dl>
 
-       
-        @using (Html.BeginForm("Detail", "Order", FormMethod.Post))
+       @if (User.IsInRole("Administrator")) {
+        using (Html.BeginForm("Detail", "Order", FormMethod.Post))
         {
-            
+
             <div class="form-group">
                 @Html.LabelFor(model => model.mountainCost, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -150,14 +153,15 @@
                     @Html.EditorFor(model => model.toHomeCost, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
             </div><br />
-
+        }
             <div>
                 @Html.LabelFor(model => model.Total, htmlAttributes: new { @class = "control-label col-md-2" })         
 
             
                 @Html.DisplayFor(model => model.Total)
             </div><br /><br />
-
+        if (User.IsInRole("Administrator"))
+        {
             <div class="form-group" align="left">
                 @Html.Label("Order confirmation status")
                 <div class="col-lg-10">
@@ -184,7 +188,7 @@
                     <input type="submit" value="Save" class="btn btn-default" />
                 </div>
             </div><br />
-
+            }
 
         }
    

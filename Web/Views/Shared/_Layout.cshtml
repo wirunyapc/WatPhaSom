@@ -34,7 +34,8 @@
                          <li>@Html.ActionLink("Home", "Index", "Home")</li>
                          <li>@Html.ActionLink("Products", "Index", "Product")</li>
                          <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                         <li>@Html.ActionLink("My cart", "Index", "Cart")</li>
+                         <li>@Html.ActionLink("| My cart", "Index", "Cart")</li>
+                         <li>@Html.ActionLink("| My order", "manageOrder", "Order")</li>  
                     </ul>
                         }
                         @Html.Partial("_LoginPartial")

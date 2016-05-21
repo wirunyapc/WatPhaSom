@@ -1,10 +1,13 @@
-﻿using Models.Entities;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Models.Entities;
 using Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Web.Models;
 
 namespace Web.Controllers
 {
@@ -20,10 +23,27 @@ namespace Web.Controllers
         }
 
 
-        [Authorize(Roles = "Administrator")]
+       // [Authorize(Roles = "Administrator")]
         public ActionResult manageOrder()
-        {                    
-            return View(orderRepo.getAll());
+        {
+            var orders = orderRepo.getAll();
+            if (User.IsInRole("Administrator"))
+            {
+                return View(orders);
+            }
+            var userOrders = new List<Order>();
+            foreach (var order in orders)
+            {
+                var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                var currentUser = manager.FindById(User.Identity.GetUserId());
+               
+                if (order.Username.Equals(currentUser.UserName))
+                {
+                    userOrders.Add(order);
+                }
+            }
+            return View(userOrders);
+        
         }
         public ActionResult slipPath(FormCollection collection, HttpPostedFileBase file)
         {
@@ -69,5 +89,8 @@ namespace Web.Controllers
 
             return RedirectToAction("Detail", new { orderId = orderId });
         }
+
+
+
     }
 }
