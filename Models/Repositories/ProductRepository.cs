@@ -42,7 +42,7 @@ namespace Models.Repositories
 
         public Product getProductById(int id)
         {
-            Product product = _context.Products.Find(id);
+            Product product = _context.Products.First(p => p.productId.Equals(id));
             return product;
         }
 

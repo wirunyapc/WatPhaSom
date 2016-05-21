@@ -9,6 +9,7 @@ using System.IO;
 using Microsoft.AspNet.Identity;
 using System.Web.Security;
 using System.Security.Claims;
+using Models.ViewModels;
 
 namespace Web.Controllers
 {
@@ -20,26 +21,13 @@ namespace Web.Controllers
         public ActionResult Index()
         {
             var isRetail = User.IsInRole("Retail");
-            System.Diagnostics.Debug.WriteLine(((ClaimsPrincipal)User).Identities);
-            return isRetail ? RedirectToAction("productMenuRetail") : RedirectToAction("productMenuWholesale");
-        }
-      //GET : Product
+            return View("List",productRepo.getAll().ToList().Select(p => 
+                ProductViewModels.ProductViewModel.GetObject(p, isRetail ? "Retail" : "Wholesale")
+            ));
 
-        [HttpGet]
-        //[Authorize(Roles = "Retail")]
-        public ActionResult productMenuRetail()
-        {
-          
-            return View(productRepo.getAll());
         }
 
-        [HttpGet]
-       // [Authorize(Roles = "Wholesale")]
-        public ActionResult productMenuWholesale()
-        {
-
-            return View(productRepo.getAll());
-        }
+ 
 
         [Authorize(Roles = "Administrator")]
         public ActionResult manageProduct()
@@ -51,9 +39,9 @@ namespace Web.Controllers
 
 
         // GET: Product/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int productId)
         {
-            return View(productRepo.getProductById(id));
+            return View(productRepo.getProductById(productId));
         }
 
         // GET: Product/Create
@@ -124,7 +112,7 @@ namespace Web.Controllers
                 string path = null;
                 if (file != null)
                 {
-                    System.Diagnostics.Debug.WriteLine("Hello i'm here");
+                    
                     string pic = System.IO.Path.GetFileName(file.FileName);
                     string imagePath = System.IO.Path.Combine(
                                            Server.MapPath("~/photoUpload"), pic);

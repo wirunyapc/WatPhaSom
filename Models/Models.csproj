@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,10 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EF\EFDbContext.cs" />
+    <Compile Include="Entities\Cart.cs" />
+    <Compile Include="Entities\CartLine.cs" />
     <Compile Include="Entities\Order.cs" />
-    <Compile Include="Entities\LineProduct.cs" />
+    <Compile Include="Entities\OrderDetail.cs" />
     <Compile Include="Entities\Payment.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\Review.cs" />
     <Compile Include="Entities\UserViewModel.cs" />
     <Compile Include="Migrations\201605162016451_initial.cs" />
     <Compile Include="Migrations\201605162016451_initial.Designer.cs">
@@ -63,12 +67,87 @@
     <Compile Include="Migrations\201605171620362_add more product attribute.Designer.cs">
       <DependentUpon>201605171620362_add more product attribute.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605190401116_update shipping and order.cs" />
+    <Compile Include="Migrations\201605190401116_update shipping and order.Designer.cs">
+      <DependentUpon>201605190401116_update shipping and order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605190427142_edit shipping in EF.cs" />
+    <Compile Include="Migrations\201605190427142_edit shipping in EF.Designer.cs">
+      <DependentUpon>201605190427142_edit shipping in EF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605191108429_updateee.cs" />
+    <Compile Include="Migrations\201605191108429_updateee.Designer.cs">
+      <DependentUpon>201605191108429_updateee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605191110133_retake virtual product.cs" />
+    <Compile Include="Migrations\201605191110133_retake virtual product.Designer.cs">
+      <DependentUpon>201605191110133_retake virtual product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605191832468_update to order model.cs" />
+    <Compile Include="Migrations\201605191832468_update to order model.Designer.cs">
+      <DependentUpon>201605191832468_update to order model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605191948333_update order detail.cs" />
+    <Compile Include="Migrations\201605191948333_update order detail.Designer.cs">
+      <DependentUpon>201605191948333_update order detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605192007189_solve total in order.cs" />
+    <Compile Include="Migrations\201605192007189_solve total in order.Designer.cs">
+      <DependentUpon>201605192007189_solve total in order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605200609226_update to amm.cs" />
+    <Compile Include="Migrations\201605200609226_update to amm.Designer.cs">
+      <DependentUpon>201605200609226_update to amm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605200830130_update order id.cs" />
+    <Compile Include="Migrations\201605200830130_update order id.Designer.cs">
+      <DependentUpon>201605200830130_update order id.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605200838469_update order date attribute.cs" />
+    <Compile Include="Migrations\201605200838469_update order date attribute.Designer.cs">
+      <DependentUpon>201605200838469_update order date attribute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605200847005_orderdetail.cs" />
+    <Compile Include="Migrations\201605200847005_orderdetail.Designer.cs">
+      <DependentUpon>201605200847005_orderdetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605200950459_updat order2.cs" />
+    <Compile Include="Migrations\201605200950459_updat order2.Designer.cs">
+      <DependentUpon>201605200950459_updat order2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605201115270_up forr db branch.cs" />
+    <Compile Include="Migrations\201605201115270_up forr db branch.Designer.cs">
+      <DependentUpon>201605201115270_up forr db branch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605201430581_add payment method.cs" />
+    <Compile Include="Migrations\201605201430581_add payment method.Designer.cs">
+      <DependentUpon>201605201430581_add payment method.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605201529359_paymment dropdown.cs" />
+    <Compile Include="Migrations\201605201529359_paymment dropdown.Designer.cs">
+      <DependentUpon>201605201529359_paymment dropdown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605201607278_del att in order.cs" />
+    <Compile Include="Migrations\201605201607278_del att in order.Designer.cs">
+      <DependentUpon>201605201607278_del att in order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605201931445_upp review.cs" />
+    <Compile Include="Migrations\201605201931445_upp review.Designer.cs">
+      <DependentUpon>201605201931445_upp review.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IReviewRepository.cs" />
+    <Compile Include="Repositories\IShoppingCartRepository.cs" />
     <Compile Include="Repositories\IOrderRepository.cs" />
     <Compile Include="Repositories\IProductRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\ReviewRepository.cs" />
+    <Compile Include="Repositories\ShoppingCartRepository.cs" />
+    <Compile Include="ViewModels\ProductViewModels.cs" />
+    <Compile Include="ViewModels\ShoppingCartRemoveViewModel.cs" />
+    <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -80,6 +159,57 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605171620362_add more product attribute.resx">
       <DependentUpon>201605171620362_add more product attribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605190401116_update shipping and order.resx">
+      <DependentUpon>201605190401116_update shipping and order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605190427142_edit shipping in EF.resx">
+      <DependentUpon>201605190427142_edit shipping in EF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605191108429_updateee.resx">
+      <DependentUpon>201605191108429_updateee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605191110133_retake virtual product.resx">
+      <DependentUpon>201605191110133_retake virtual product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605191832468_update to order model.resx">
+      <DependentUpon>201605191832468_update to order model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605191948333_update order detail.resx">
+      <DependentUpon>201605191948333_update order detail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605192007189_solve total in order.resx">
+      <DependentUpon>201605192007189_solve total in order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605200609226_update to amm.resx">
+      <DependentUpon>201605200609226_update to amm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605200830130_update order id.resx">
+      <DependentUpon>201605200830130_update order id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605200838469_update order date attribute.resx">
+      <DependentUpon>201605200838469_update order date attribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605200847005_orderdetail.resx">
+      <DependentUpon>201605200847005_orderdetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605200950459_updat order2.resx">
+      <DependentUpon>201605200950459_updat order2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201115270_up forr db branch.resx">
+      <DependentUpon>201605201115270_up forr db branch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201430581_add payment method.resx">
+      <DependentUpon>201605201430581_add payment method.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201529359_paymment dropdown.resx">
+      <DependentUpon>201605201529359_paymment dropdown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201607278_del att in order.resx">
+      <DependentUpon>201605201607278_del att in order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201931445_upp review.resx">
+      <DependentUpon>201605201931445_upp review.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

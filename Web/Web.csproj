@@ -196,11 +196,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -212,6 +214,34 @@
     <Compile Include="Migrations\201605171618249_add product attribute.Designer.cs">
       <DependentUpon>201605171618249_add product attribute.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605191831043_update to order.cs" />
+    <Compile Include="Migrations\201605191831043_update to order.Designer.cs">
+      <DependentUpon>201605191831043_update to order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605191955199_update order detail in web.cs" />
+    <Compile Include="Migrations\201605191955199_update order detail in web.Designer.cs">
+      <DependentUpon>201605191955199_update order detail in web.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605192057409_update user identity.cs" />
+    <Compile Include="Migrations\201605192057409_update user identity.Designer.cs">
+      <DependentUpon>201605192057409_update user identity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605200608308_update to amm.cs" />
+    <Compile Include="Migrations\201605200608308_update to amm.Designer.cs">
+      <DependentUpon>201605200608308_update to amm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605200858269_updateuser.cs" />
+    <Compile Include="Migrations\201605200858269_updateuser.Designer.cs">
+      <DependentUpon>201605200858269_updateuser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605201109093_update for db branch.cs" />
+    <Compile Include="Migrations\201605201109093_update for db branch.Designer.cs">
+      <DependentUpon>201605201109093_update for db branch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605201932214_eiei.cs" />
+    <Compile Include="Migrations\201605201932214_eiei.Designer.cs">
+      <DependentUpon>201605201932214_eiei.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -220,6 +250,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\image\basket.png" />
@@ -234,14 +266,23 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-2.2.3-vsdoc.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.2.3.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -289,29 +330,33 @@
     <Content Include="Views\Product\manageProduct.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Delete.cshtml" />
-    <Content Include="Views\Product\productMenuRetail.cshtml" />
     <Content Include="Views\Roles\GetUsers.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Roles\Create.cshtml" />
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\ManageUserRoles.cshtml" />
     <Content Include="Views\Roles\EditRoleForUser.cshtml" />
-    <Content Include="Views\Product\productMenuWholesale.cshtml" />
     <Content Include="Views\Home\AdminManage.cshtml" />
+    <Content Include="Views\Product\List.cshtml" />
+    <Content Include="Views\Checkout\Address.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Scripts\jquery-2.2.3.min.map" />
+    <Content Include="Views\Checkout\Complete.cshtml" />
+    <Content Include="Views\Checkout\Error.cshtml" />
+    <Content Include="Views\Order\manageOrder.cshtml" />
+    <Content Include="Views\Order\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="photoUpload\" />
-    <Folder Include="Views\Order\" />
+    <Folder Include="slipPhoto\" />
+    <Folder Include="Views\Cart\" />
+    <Folder Include="Views\Review\" />
     <Folder Include="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">
@@ -325,6 +370,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605171618249_add product attribute.resx">
       <DependentUpon>201605171618249_add product attribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605191831043_update to order.resx">
+      <DependentUpon>201605191831043_update to order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605191955199_update order detail in web.resx">
+      <DependentUpon>201605191955199_update order detail in web.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605192057409_update user identity.resx">
+      <DependentUpon>201605192057409_update user identity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605200608308_update to amm.resx">
+      <DependentUpon>201605200608308_update to amm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605200858269_updateuser.resx">
+      <DependentUpon>201605200858269_updateuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201109093_update for db branch.resx">
+      <DependentUpon>201605201109093_update for db branch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201932214_eiei.resx">
+      <DependentUpon>201605201932214_eiei.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

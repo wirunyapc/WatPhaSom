@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Models.ViewModels.ProductViewModels.ProductViewModel>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Shop now!</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                Image
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td><center>
+                    <image src="@Url.Content(item.photoPath)" alt="item.name" height="200" width="200" />
+                </center></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                @using (Html.BeginForm("AddToCart", "ShoppingCart" ))
+                {
+                <td>
+                    <input type="hidden" name="productId" value=@item.productId />
+                    <input type="number" name="amount" value="1" />
+                </td>
+                <td>                                       
+                            <input type="submit" value="+ Add to cart" />                                                                
+                </td>
+                }
+                @using (Html.BeginForm("Details", "Product"))
+                {
+                    <td>
+                        <input type="hidden" name="productId" value=@item.productId />
+                        <input type="submit" name="detail" value="Detail" />
+                    </td>
+                }
+            </tr>
+
+        
+
+        }
+    </table>

@@ -1,0 +1,90 @@
+﻿@model Models.ViewModel.ShoppingCartViewModel
+@{
+
+    ViewBag.Title = "Shop : Your Cart";
+
+}
+
+
+<h2>Your cart</h2> 
+
+<p align="right" class="actionButtons" >
+
+    <a href="~/Checkout/Address">Check out</a>
+
+</p>
+
+<table width="90%" align="center">
+
+    <thead>
+        <tr>
+            <th align="left">Product</th>
+
+            <th align="left">Quantity</th>
+
+            <th align="left">Price</th>
+
+            <th align="right">Subtotal</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var line in Model.CartItems)
+        {
+
+            <tr>
+                <td align="left">@line.product.name</td>
+
+                <td align="left">@line.Count</td>
+
+                @if (User.IsInRole("Wholesale"))
+                {
+                    <td align="left">@line.product.priceWholesale.ToString("c")</td>
+                    <td align="left">@((line.Count * line.product.priceWholesale).ToString("c"))</td>
+                }
+                else
+                {
+                    <td align="left">@line.product.priceRetail.ToString("c")</td>
+                    <td align="left"> @((line.Count * line.product.priceRetail).ToString("c"))</td>
+                }                
+                
+                
+                
+                <td>
+                    @using (Html.BeginForm("RemoveFromCart", "ShoppingCart"))
+                    {
+                        @Html.Hidden("ProductId", line.product.productId)
+
+                        <input class="actionButtons" type="submit" value="Remove" />
+                    }
+                </td>
+
+            </tr>
+
+        }
+
+    </tbody>
+
+    <tfoot>
+        <tr>
+
+            <td colspan="3" align="right">Total:</td>
+
+            <td align="right">
+               @Model.CartTotal
+
+            </td>
+
+        </tr>
+    </tfoot>
+
+</table>
+   
+<p align="center" class="actionButtons">
+    <br><br><br>
+    <a href="~/Product/Index">Continue shopping</a>
+
+</p>
+    
