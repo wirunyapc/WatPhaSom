@@ -41,12 +41,13 @@ namespace Models.Repositories
 
         public List<Order> getAll()
         {
-            return _context.Orders.ToList();
+            var orders = _context.Orders.ToList();
+            return orders;
         }
 
-        public Order getOrderById(string id)
+        public Order getOrderById(int id)
         {
-            Order order = _context.Orders.Find(id);
+            Order order = _context.Orders.First(o => o.orderId.Equals(id));
             return order;
         }
 

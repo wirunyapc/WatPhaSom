@@ -104,11 +104,12 @@ namespace Web.Controllers
 
                 order.toHomeCost = 0.0;
 
-                order.isConfirm = "-";
+                order.isConfirm = "Wait for Admin";
 
-                order.isPay = "-";
+                order.isPay = "Wait for Admin";
 
                 order.paymentId = payment;
+                order.slipPath = "wait for pay";
 
 
                 order.FirstName = values["Firstname"];

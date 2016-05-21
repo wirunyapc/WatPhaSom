@@ -31,9 +31,9 @@
         {
 
             <tr>
-                <td>
+                <td><center>
                     <image src="@Url.Content(item.photoPath)" alt="item.name" height="200" width="200" />
-                </td>
+                </center></td>
                 <td>
                     @Html.DisplayFor(modelItem => item.name)
                 </td>
@@ -49,13 +49,16 @@
                     <input type="hidden" name="productId" value=@item.productId />
                     <input type="number" name="amount" value="1" />
                 </td>
-                <td>                   
-                        
-                            <input type="submit" value="+ Add to cart" />                   
-                       
-                    
-                    
+                <td>                                       
+                            <input type="submit" value="+ Add to cart" />                                                                
                 </td>
+                }
+                @using (Html.BeginForm("Details", "Product"))
+                {
+                    <td>
+                        <input type="hidden" name="productId" value=@item.productId />
+                        <input type="submit" name="detail" value="Detail" />
+                    </td>
                 }
             </tr>
 

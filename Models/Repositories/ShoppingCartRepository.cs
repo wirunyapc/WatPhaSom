@@ -195,7 +195,7 @@ namespace Models.Repositories
             foreach (var item in cartItems)
             {
 
-
+              
                 var orderDetail = new OrderDetail
                 {
                     productId = item.productId,

@@ -238,6 +238,10 @@
     <Compile Include="Migrations\201605201109093_update for db branch.Designer.cs">
       <DependentUpon>201605201109093_update for db branch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605201932214_eiei.cs" />
+    <Compile Include="Migrations\201605201932214_eiei.Designer.cs">
+      <DependentUpon>201605201932214_eiei.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -339,12 +343,15 @@
     <Content Include="Scripts\jquery-2.2.3.min.map" />
     <Content Include="Views\Checkout\Complete.cshtml" />
     <Content Include="Views\Checkout\Error.cshtml" />
+    <Content Include="Views\Order\manageOrder.cshtml" />
+    <Content Include="Views\Order\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="photoUpload\" />
+    <Folder Include="slipPhoto\" />
     <Folder Include="Views\Cart\" />
-    <Folder Include="Views\Order\" />
+    <Folder Include="Views\Review\" />
     <Folder Include="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
@@ -381,6 +388,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605201109093_update for db branch.resx">
       <DependentUpon>201605201109093_update for db branch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201932214_eiei.resx">
+      <DependentUpon>201605201932214_eiei.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

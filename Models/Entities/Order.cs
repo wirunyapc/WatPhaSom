@@ -118,6 +118,10 @@ namespace Models.Entities
 
             return bob.ToString();
         }
-
+        public Order()
+        {
+            this.OrderDetail = new List<OrderDetail>();
+            this.OrderDetails = new List<OrderDetail>();
+        }
     }
 }

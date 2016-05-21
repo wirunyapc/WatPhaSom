@@ -1,0 +1,196 @@
+﻿@model Models.Entities.Order
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>       
+
+        <dt>
+            @Html.DisplayNameFor(model => model.toHomeCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.toHomeCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isConfirm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isConfirm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mountainCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mountainCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isPay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isPay)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.paymentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paymentId)
+        </dd>
+        @if(Model.paymentId.Equals("Bank Transfer")){ 
+        <dt>
+            Bank transfer document
+        </dt>
+
+        <dd>
+            <image src="@Url.Content(Model.slipPath)" alt="item.name" height="300" width="300" />
+        </dd>        
+        }
+        
+
+    </dl>
+
+       
+        @using (Html.BeginForm("Detail", "Order", FormMethod.Post))
+        {
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.mountainCost, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.mountainCost, new { htmlAttributes = new { @class = "form-control" } })
+                  </div>
+            </div><br />
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.toHomeCost, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.toHomeCost, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div><br />
+
+            <div>
+                @Html.LabelFor(model => model.Total, htmlAttributes: new { @class = "control-label col-md-2" })         
+
+            
+                @Html.DisplayFor(model => model.Total)
+            </div><br /><br />
+
+            <div class="form-group" align="left">
+                @Html.Label("Order confirmation status")
+                <div class="col-lg-10">
+                    <select name="isCon">
+                        <option>Confirmed</option>
+                        <option>Sorry, We are not ready.</option>
+                    </select>
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                @Html.Label("Payment confirmation status")
+                <div class="col-lg-10">
+                    <select name="isP">
+                        <option>Completed!</option>
+                        <option>Sorry, something went wrong.</option>
+                    </select>
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.Hidden("orderId", Model.orderId)
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div><br />
+
+
+        }
+   
+
+
+<p>
+    @Html.ActionLink("Back to List", "manageOrder")
+  
+</p>
