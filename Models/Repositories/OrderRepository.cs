@@ -16,8 +16,14 @@ namespace Models.Repositories
 
         public void addOrder(Order order)
         {
-            _context.Orders.Add(order);
-            saveOrder();
+            // Load current account from DB
+            var accountInDb = _context.Orders.Single(a => a.orderId == order.orderId);
+
+            // Update the properties
+            _context.Entry(accountInDb).CurrentValues.SetValues(order);
+
+            // Save the changes
+            _context.SaveChanges();
         }
 
         public void deleteOrder(string id)
@@ -33,9 +39,15 @@ namespace Models.Repositories
             saveOrder();
         }
 
-        public Order getOrderById(string id)
+        public List<Order> getAll()
         {
-            Order order = _context.Orders.Find(id);
+            var orders = _context.Orders.ToList();
+            return orders;
+        }
+
+        public Order getOrderById(int id)
+        {
+            Order order = _context.Orders.First(o => o.orderId.Equals(id));
             return order;
         }
 

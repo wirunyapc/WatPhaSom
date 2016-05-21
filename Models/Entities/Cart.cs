@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Models.Entities;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,26 +10,14 @@ using System.Web.Security;
 
 namespace Models.Entities
 {
-    public class Cart
-    {
-        private List<CartLine> lineCollection = new List<CartLine>();
-        public void AddItem(Product product, int quantity)
+        public class Cart
         {
-            CartLine line = lineCollection.Where(p => p.Product.productId == product.productId).FirstOrDefault();
-            if (line == null) { lineCollection.Add(new CartLine { Product = product, Quantity = quantity }); } else { line.Quantity += quantity; }
+            [Key]
+            public int ID { get; set; }
+            public string CartId { get; set; }
+            public int productId { get; set; }
+            public int Count { get; set; }
+            public System.DateTime DateCreated { get; set; }
+            public virtual Product product { get; set; }
         }
-        public void RemoveLine(Product product) { lineCollection.RemoveAll(l => l.Product.productId == product.productId); }
-        public double ComputeTotalValue(string userType)
-        {
-            if (userType.Equals("Wholesale"))
-            {
-                return lineCollection.Sum(e => e.Product.priceWholesale * e.Quantity);
-
-            }
-            return lineCollection.Sum(e => e.Product.priceRetail * e.Quantity);
-        }
-       
-        public void Clear() { lineCollection.Clear(); }
-        public IEnumerable<CartLine> Lines { get { return lineCollection; } }
     }
-}

@@ -4,7 +4,7 @@
     ViewBag.Title = "List";
 }
 
-<h2>List</h2>
+<h2>Shop now!</h2>
 
     <table class="table">
         <tr>
@@ -21,6 +21,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.description)
             </th>
+            <th>
+                Quantity
+            </th>
             <th></th>
         </tr>
 
@@ -28,9 +31,9 @@
         {
 
             <tr>
-                <td>
-                    <image src="@Url.Content(item.photoPath)" alt="item.name" height="300" width="300" />
-                </td>
+                <td><center>
+                    <image src="@Url.Content(item.photoPath)" alt="item.name" height="200" width="200" />
+                </center></td>
                 <td>
                     @Html.DisplayFor(modelItem => item.name)
                 </td>
@@ -40,20 +43,26 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.description)
                 </td>
+                @using (Html.BeginForm("AddToCart", "ShoppingCart" ))
+                {
                 <td>
-                    @using (Html.BeginForm("AddToCart", "Cart"))
-                    {
-                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                            <input type="submit" value="+ Add to cart" />
-                        
-                        <input type="hidden" name="productId" value=@item.productId />
-                    }
-                    
+                    <input type="hidden" name="productId" value=@item.productId />
+                    <input type="number" name="amount" value="1" />
                 </td>
-               
+                <td>                                       
+                            <input type="submit" value="+ Add to cart" />                                                                
+                </td>
+                }
+                @using (Html.BeginForm("Details", "Product"))
+                {
+                    <td>
+                        <input type="hidden" name="productId" value=@item.productId />
+                        <input type="submit" name="detail" value="Detail" />
+                    </td>
+                }
             </tr>
 
-
+        
 
         }
     </table>

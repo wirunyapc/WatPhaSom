@@ -26,23 +26,8 @@ namespace Web.Controllers
             ));
 
         }
-      //GET : Product
 
-        [HttpGet]
-        //[Authorize(Roles = "Retail")]
-        public ActionResult productMenuRetail()
-        {
-          
-            return View(productRepo.getAll());
-        }
-
-        [HttpGet]
-       // [Authorize(Roles = "Wholesale")]
-        public ActionResult productMenuWholesale()
-        {
-
-            return View(productRepo.getAll());
-        }
+ 
 
         [Authorize(Roles = "Administrator")]
         public ActionResult manageProduct()
@@ -54,9 +39,9 @@ namespace Web.Controllers
 
 
         // GET: Product/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int productId)
         {
-            return View(productRepo.getProductById(id));
+            return View(productRepo.getProductById(productId));
         }
 
         // GET: Product/Create
@@ -127,7 +112,7 @@ namespace Web.Controllers
                 string path = null;
                 if (file != null)
                 {
-                    System.Diagnostics.Debug.WriteLine("Hello i'm here");
+                    
                     string pic = System.IO.Path.GetFileName(file.FileName);
                     string imagePath = System.IO.Path.Combine(
                                            Server.MapPath("~/photoUpload"), pic);
